@@ -55,4 +55,9 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body)
     end
+
+    def destroy
+      @post.destroy
+      redirect_to posts_url, notice:'削除されました'
+    end
 end
